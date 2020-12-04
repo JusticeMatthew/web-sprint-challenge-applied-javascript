@@ -23,7 +23,7 @@
 
 axios.get('https://lambda-times-api.herokuapp.com/articles')
     .then(res => {
-        const newArr = Object.entries(res.data.articles); // The data was so nested I needed to make some conversions
+        const newArr = Object.entries(res.data.articles); // The data was so nested I needed to make some conversions so I could iterate better
         const cardsArr = newArr.map(topic => {
             return Cardgen(topic[1])
         })

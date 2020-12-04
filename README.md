@@ -28,13 +28,23 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. What is the DOM?
 
+-- The DOM contains all elemnents of a page as objects that can be manipulated with JavaScript.
+
 2. What is an event?
+
+-- When something occurs on the webpage done by either the user or the browers (IE Clicks/pageloads).
 
 3. What is an event listener?
 
+-- An event listener is a porperty we can add to HTML elements via the DOM that will monitor for the specified event and execute some code when the event occurs.
+
 4. Why would we convert a NodeList into an Array?
 
+-- Since NodeLists are arraylike only some array methods work on them, if you need the others like .map, .filter, or .reduce the nodelist must be converted using Array.from()
+
 5. What is a component?
+
+-- Blocks of reusable code
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
