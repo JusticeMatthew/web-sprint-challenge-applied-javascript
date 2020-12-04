@@ -27,13 +27,11 @@ axios.get('https://lambda-times-api.herokuapp.com/articles')
         const cardsArr = newArr.map(topic => {
             return Cardgen(topic[1])
         })
-        cardsArr.forEach(arr => arr.forEach(card => {
-            document.querySelector('.cards-container').appendChild(card)
-        }))
+        cardsArr.forEach(arr => arr.forEach(card => document.querySelector('.cards-container').appendChild(card)))
     })
     .catch(err => console.log('Error', err));
 
-    // Takes a single object! That was a pain
+// Takes a single object! That was a pain
 function Cardgen(article) {
 
     const cardArr = article.map(item => {
