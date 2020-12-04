@@ -23,17 +23,18 @@
 
 axios.get('https://lambda-times-api.herokuapp.com/articles')
     .then(res => {
-        const newArr = Object.entries(res.data.articles);
+        const newArr = Object.entries(res.data.articles); // The data was so nested I needed to make some conversions
         const cardsArr = newArr.map(topic => {
             return Cardgen(topic[1])
         })
-        cardsArr.forEach(arr => arr.forEach(card => document.querySelector('.cards-container').appendChild(card)))  
+        cardsArr.forEach(arr => arr.forEach(card => {
+            document.querySelector('.cards-container').appendChild(card)
+        }))
     })
     .catch(err => console.log('Error', err));
 
-
+    // Takes a single object! That was a pain
 function Cardgen(article) {
-    // console.log(article)
 
     const cardArr = article.map(item => {
 
@@ -58,6 +59,14 @@ function Cardgen(article) {
         headline.textContent = item.headline;
         cardImg.src = item.authorPhoto;
         authName.textContent = `By ${item.authorName}`;
+
+        // This was so hard to figure out, my goodness!
+        function clicky(event) {
+            console.log(headline.textContent);
+            event.stopPropagation();
+        }
+
+        card.onclick = clicky;
 
         return card;
 
